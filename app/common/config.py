@@ -18,12 +18,14 @@ class Config:
 @dataclass
 class LocalConfig(Config):
     PROJ_RELOAD: bool = True
+    DB_URL: str = 'mysql+pymysql://root:1234@localhost:10007/fastapi?charset=utf8mb4'
 
 
 @dataclass
 class ProdConfig(Config):
     PROJ_RELOAD: bool = False
-
+    # TRUSTED_HOSTS = ["*"]
+    # ALLOW_SITE = ["*"]
 
 def conf():
     """
